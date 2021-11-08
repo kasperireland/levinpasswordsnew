@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Levin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,300;1,400;1,900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bgd-1: #222222;
+        --bgd-2: #333333;
+        
+        --fgd-2: #837ffb;
+        --acc-1: #8f939e;
+        --acc-2: #dcd9da;
+      }
+
+      @keyframes outline-light {
+        0% {
+          background: white;
+        }
+        50% {
+          background: #48c774;
+        }
+        100% {
+          background: white;
+        }
+      }
+      @keyframes invalid {
+        0% {
+          background: white;
+        }
+        50% {
+          border-color: #f14668;
+          background: #f14668;
+        }
+        100% {
+          background: white;
+        }
+      }
+
+      * {
+        font-family: 'Source Sans Pro', sans-serif !important;
+        user-select: none;
+
+        touch-action: manipulation;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(100deg, #736EFE, #736EFE);
+      }
+      
+      
+
+      input[type="text"],
+      input[type="password"] {
+        -webkit-touch-callout: default !important;
+        -webkit-user-select: text !important;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      button {
+        box-shadow: inset 0 0.0625em 0.125em rgba(10,10,10,.05);
+        border-radius: 4px;
+        color: #363636;
+        border: 1px solid #999;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        outline: 0;
+      }
+      input[type="text"]:hover,
+      input[type="password"]:hover {
+        border-color: #777;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #3273dc;
+        box-shadow: 0 0 0 0.125em rgba(50,115,220,.25);
+      }
+      input[type="text"].invalid,
+      input[type="password"].invalid {
+        border-color: #f14668;
+        animation: invalid 0.3s;
+      }
+      input[type="text"].outline-light,
+      input[type="password"].outline-light {
+        animation: outline-light 0.3s;
+      }
+      input#output:focus {
+          border-color: #48c774;
+      }
+      input.fullwidth {
+        width: calc(100% - 1.5em - 2px);
+      }
+
+      input[type="checkbox"] {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+      }
+      label {
+        user-select: none;
+        padding: 5px;
+        color: var(--acc-2);
+        background: var(--fgd-1);
+        border: 1px solid rgb(0, 0, 0, 0.3);
+        border-radius: 2px;
+        box-shadow: none;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+      input[type="checkbox"]:checked + label {
+        background: var(--fgd-2);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      button {
+        background: var(--acc-2);
+      }
+      button[type="submit"] {
+        width: 100%;
+        padding: 5px;
+        outline: 0;
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .fullwidth {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .fill {
+        background: #999;
+        width: 75px;
+        height: calc(12pt + 1em);
+        border: 1px solid #999;
+        border-radius: 4px;
+        box-shadow: inset 0 0.0625em 0.125em rgba(10,10,10,.05);
+      }
+      .focus {
+        padding: 5vw;
+        background: var(--fgd-1);
+		border-radius:50px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+      }
+      .counter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--acc-2);
+      }
+    </style>
+  </head>
+  <body>
+  <div class = "container d-none d-lg-block" align = "center">
+  <br>  <br>
+	<h1 style = "color:white; font-size:50px;">
+		<strong>Secure, easy, no sync needed.</strong>
+		</h1>
+		
+		<h4 style = "color:white; font-size:20px; max-width:70%;">
+		<strong>Remember one master password to access all of your passwords, anywhere, on any device. No sync needed. When the same values are entered for all the fields below, the generated password will always result the same.<strong>
+		</h4><br>
+		<br>
+	</div>
+	<div class="d-lg-none"><br><br><br></div>
+
+    <div class="center container">
+	
+
+	
+	
+      <form class="focus" id="form">
+        <div align = "center"><img src = "levin.png"></div><br>
+        <input type="text" id="site" placeholder="Site" class="fullwidth">
+        <br>
+        <input type="text" id="username" placeholder="Username" class="fullwidth">
+        <br>
+        <div class="fullwidth">
+          <input type="password" id="masterpass" placeholder="Master Password">
+          <div id="mnemonic" class="fill"></div>
+        </div>
+        <br><br>
+        <div class="fullwidth">
+		<p style = "color:white; font-size:16px;">Select Generated Password Options:</p>&nbsp;
+          <input type="checkbox" id="lowercase" checked>
+          <label for="lowercase">a-z</label>
+
+          <input type="checkbox" id="uppercase" checked>
+          <label for="uppercase">A-Z</label>
+
+          <input type="checkbox" id="numbers" checked>
+          <label for="numbers">0-9</label>
+
+          <input type="checkbox" id="specials" checked>
+          <label for="specials">!/_</label>
+        </div>
+        <br>
+        <div class="counter">
+          <span>Length:</span>
+          <div>
+            <button type="button" id="len_dec">&ndash;</button>
+            <span id="length">32</span>
+            <button type="button" id="len_inc">+</button>
+          </div>
+        </div>
+        <hr>
+        <button type="submit" id="gen" class="btn btn-outline-light btn-lg btn-block">Generate</button><br>
+        <br>
+        <div class="fullwidth">
+          <button type="button" id="copy" class = "btn btn-outline-light">Copy</button>
+          <input type="password" id="output" placeholder="Output" readonly>
+          <button type="button" id="show" style="width:57px" class = "btn btn-outline-light">Show</button>
+        </div>
+      </form>
+	  </div>
+	  <br><br>
+		 
+	
+    <script src="sha512.min.js"></script>
+    <script src="levin.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+  <!-- Hi, thanks for viewing the source of this page. Just wanted to let ya know; This version of Unstated Password Manager is licensed under CC by ND 4.0. See more of that license here: https://creativecommons.org/licenses/by-nd/4.0/ -->
+</html>
+
